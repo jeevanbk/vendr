@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -30,10 +29,9 @@ class HomeDashboard extends StatefulWidget {
 class _HomeDashboardState extends State<HomeDashboard> {
   int currentIndex = 0;
   final searchGrey = Color(0x1F767680);
-  String menuIcon="assets/menu.svg";
-  String addContactsIcon="assets/addContact.svg";
-  String vendorIcon="assets/vendorIcon.svg";
-
+  String menuIcon = "assets/menu.svg";
+  String addContactsIcon = "assets/addContact.svg";
+  String vendorIcon = "assets/vendorIcon.svg";
 
   @override
   Widget build(BuildContext context) {
@@ -50,34 +48,30 @@ class _HomeDashboardState extends State<HomeDashboard> {
           leading: Padding(
             padding: const EdgeInsets.all(16.0),
             child: SvgPicture.asset(
-                menuIcon,
-
+              menuIcon,
             ),
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.symmetric( horizontal: 16.w),
-              child:SvgPicture.asset(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: SvgPicture.asset(
                   addContactsIcon,
-                 height: 18.h,
-                 width: 18.w,
-              )
-            )
+                  height: 18.h,
+                  width: 18.w,
+                ))
           ],
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SearchBar(),
-                  SizedBox(height: 16.h),
-                  CountryList(),
-                ],
-              ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchBar(),
+                SizedBox(height: 16.h),
+                SingleChildScrollView(child: CountryList()),
+              ],
             ),
           ),
         ),
@@ -91,13 +85,13 @@ class _HomeDashboardState extends State<HomeDashboard> {
           currentIndex: currentIndex,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Vendors',
-               ),
+              icon: Icon(Icons.home),
+              label: 'Vendors',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.storefront),
-                label: 'Showroom',
-               ),
+              icon: Icon(Icons.storefront),
+              label: 'Showroom',
+            ),
           ],
         ),
       ),
@@ -167,7 +161,8 @@ class _HomeDashboardState extends State<HomeDashboard> {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w400)),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400)),
                         ],
                       ),
                     ),
